@@ -8,7 +8,7 @@ import java.util.Collections;
 public class mainSearch {
 	
 	public static void main(String args[]){
-		//Dummy choices
+		//Dummy choices replace with result from dropdowns
 		String choice1 = "ACURA";
 		String choice2 = "COMPACT";
 		String choice3 = "\"X\"";
@@ -17,7 +17,7 @@ public class mainSearch {
 		int i = 0;
 		//Index of Top five cars
 		int topfive[] = new int[5];
-		//if number is less than 5
+		//if number of matches is less than 5
 		int numberOfMatches = 0;
 		//Sentinel values for loops
 		boolean e = false, z =false;
@@ -49,7 +49,6 @@ public class mainSearch {
 				}
 			}
 			catch(Exception error){
-				
 			}
 		}
 		
