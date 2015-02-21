@@ -1,0 +1,19 @@
+<!--Maximum car Price Spinner Array-->
+    <string-array name="carClass_array">
+        <item>Compact</item>
+        <item>Mid-Size</item>
+        <item>Subcompact</item>
+        <item>Station Wagon - Mid-Size</item>
+        <item>Minicompact</item>
+        <item>Two-Seater</item>
+        <item>Station Wagon - Small</item>
+        <item>Full-Size</item>
+        <item>SUV</item>
+        <item>Van - Cargo</item>
+        <item>Van - Passenger</item>
+        <item>Pickup Truck - Standard</item>
+        <item>Pickup Truck - Small</item>
+        <item>Minivan</item>
+        <item>Station Wagon - Small</item>
+        <item>Full-Size</item>
+    </string-array>
