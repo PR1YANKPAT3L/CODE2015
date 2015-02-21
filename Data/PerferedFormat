@@ -1,0 +1,12 @@
+A contains
+            	"modelYear": 2000,
+            	"make": "ACURA",
+            	"model": "1.6EL",
+            	"vehicleClass": "COMPACT",
+               	"transmission": "A4",
+                "fuelType": "X",
+B contains
+		"fuelConsumptionCity": 9.2,
+            	"fuelConsumptionHwy": 6.7,
+            	"co2Emissions": 186
+
