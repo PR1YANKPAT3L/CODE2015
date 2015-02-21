@@ -1,0 +1,26 @@
+package com.example.myapplication.json_parse;
+
+/**
+ * Created by 100535400 on 21/02/2015.
+ */
+public class Contact {
+
+    public String modelYear = "";
+    public String make = "";
+    public String model = "";
+    public String vehicleClass = "";
+    public String engineSize = "";
+    public String cylinders = "";
+    public String transmission = "";
+    public String fuelType = "";
+    public String fuelConsumptionCity = "";
+    public String fuelConsumptionHwy = "";
+    public String fuelConsumptionComb1 = "";
+    public String fuelConsumptionComb2 = "";
+    public String co2Emissions = "";
+
+    @Override
+    public String toString() {
+        return modelYear + ", " + make + ", " + model + ", " + co2Emissions;
+    }
+}
