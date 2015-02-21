@@ -4,9 +4,10 @@ A contains
             	"model": "1.6EL",
             	"vehicleClass": "COMPACT",
                	"transmission": "A4",
-                "fuelType": "X",
+                "fuelType": "X"
 B contains
+		"co2Emissions": 186
 		"fuelConsumptionCity": 9.2,
-            	"fuelConsumptionHwy": 6.7,
-            	"co2Emissions": 186
+            	"fuelConsumptionHwy": 6.7
+ 
 
