@@ -1,0 +1,152 @@
+package com.example.myapplication.json_parse;
+
+import android.app.ProgressDialog;
+import android.os.AsyncTask;
+import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.TextView;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+
+
+public class MainActivity extends ActionBarActivity {
+
+    private static String TAG_MODELYEAR = "modelYear";
+    private static String TAG_MAKE = "make";
+    private static String TAG_MODEL = "model";
+    private static String TAG_VEHICLECLASS = "vehicleClass";
+    private static String TAG_ENGINESIZE = "engineSize";
+    private static String TAG_CYLINDERS = "cylinders";
+    private static String TAG_TRANSMISSION = "tranmission";
+    private static String TAG_FUELTYPE = "fuelType";
+    private static String TAG_FUELCONSUMPTIONCITY = "fuelComsumptionCity";
+    private static String TAG_FUELCONSUMPTIONHWY = "fuelComsumptionHwy";
+    private static String TAG_FUELCONSUMPTIONCOMB1 = "fuelComsumptionComb1";
+    private static String TAG_FUELCONSUMPTIONCOMB2 = "fuelComsumptionComb2";
+    private static String TAG_CO2EMISSION = "co2Emissions";
+
+    ProgressDialog dialog;
+    ArrayList<Contact> cars;
+
+    TextView tvData;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        initialize();
+
+        new ParseJOSNTask().execute();
+    }
+
+    private void initialize() {
+
+        dialog = new ProgressDialog(this);
+        cars = new ArrayList<Contact>();
+
+        tvData = (TextView) findViewById(R.id.tvData);
+
+    }
+
+    private void updateUi(){
+        String carsString = "";
+
+        for(Contact aCar: cars)
+        {
+            carsString += aCar.toString();
+        }
+
+        tvData.setText(carsString);
+
+    }
+
+
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        getMenuInflater().inflate(R.menu.menu_main, menu);
+//        return true;
+//    }
+
+    private class ParseJOSNTask extends AsyncTask<Void, Void, Void>{
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            dialog.setMessage("Loading...");
+            dialog.setCancelable(false);
+            dialog.show();
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+
+            WebServiceHandler webServiceHandler = new WebServiceHandler();
+            String jsonStr = webServiceHandler.getJSONData("https://raw.githubusercontent.com/PR1YANKPAT3L/Healthy-Cars/master/Data/cars.json");
+
+            try{
+                JSONObject jsonObject = new JSONObject(jsonStr);
+                JSONArray carsJSON = jsonObject.getJSONArray(TAG_MODELYEAR);
+
+                for (int i = 0; i < carsJSON.length(); i++)
+                {
+                    Contact aCar = new Contact();
+                    JSONObject carsObject = carsJSON.getJSONObject(i);
+
+                    aCar.modelYear = carsObject.getString(TAG_MODELYEAR);
+                    aCar.make = carsObject.getString(TAG_MAKE);
+                    aCar.model = carsObject.getString(TAG_MODEL);
+                    aCar.vehicleClass = carsObject.getString(TAG_VEHICLECLASS);
+                    aCar.engineSize = carsObject.getString(TAG_ENGINESIZE);
+                    aCar.cylinders = carsObject.getString(TAG_CYLINDERS);
+                    aCar.transmission = carsObject.getString(TAG_TRANSMISSION);
+                    aCar.fuelType = carsObject.getString(TAG_FUELTYPE);
+                    aCar.fuelConsumptionCity = carsObject.getString(TAG_FUELCONSUMPTIONCITY);
+                    aCar.fuelConsumptionHwy = carsObject.getString(TAG_FUELCONSUMPTIONHWY);
+                    aCar.fuelConsumptionComb1 = carsObject.getString(TAG_FUELCONSUMPTIONCOMB1);
+                    aCar.fuelConsumptionComb2 = carsObject.getString(TAG_FUELCONSUMPTIONCOMB2);
+                    aCar.co2Emissions = carsObject.getString(TAG_CO2EMISSION);
+
+
+                }
+
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            if (dialog.isShowing())
+            {
+                dialog.dismiss();
+            }
+            updateUi();
+
+        }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+}
