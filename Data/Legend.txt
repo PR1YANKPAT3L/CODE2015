@@ -1,0 +1,17 @@
+Model	4WD/4X4 = Four-wheel drive	
+	AWD = All-wheel drive	
+	CNG = Compressed natural gas	
+	FFV = Flexible-fuel vehicle	
+	NGV = Natural gas vehicle	
+	# = High output engine that provides more power than the standard engine of the same size	
+Transmission	A = Automatic	
+	AM = Automated manual	
+	AS = Automatic with select shift	
+	AV = Continuously variable	
+	M = Manual	
+	3 – 10 = Number of gears	
+Fuel Type	X = Regular gasoline	
+	Z = Premium gasoline	
+	D = Diesel	
+	E = Ethanol (E85)	
+	N = Natural Gas	
