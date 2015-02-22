@@ -1,0 +1,14 @@
+aClass.put("Subcompact", "SUBCOMPACT");
+aClass.put("Station Wagon - Mid-Size", "STATION WAGON - MID-SIZE");
+aClass.put("Minicompact", "MINICOMPACT");
+aClass.put("Two-Seater", "TWO-SEATER");
+aClass.put("Station Wagon - Small", "STATION WAGON - SMALL");
+aClass.put("Full-Size", "FULL-SIZE");
+aClass.put("SUV", "SUV");
+aClass.put("Van - Cargo", "VAN - CARGO");
+aClass.put("Van - Passenger", "VAN - PASSENGER");
+aClass.put("Pickup Truck - Standard", "PICKUP TRUCK - STANDARD");
+aClass.put("Pickup Truck - Small", "PICKUP TRUCK - SMALL");
+aClass.put("Minivan", "MINIVAN");
+aClass.put("Station Wagon - Small", "STATION WAGON - SMALL");
+aClass.put("Full-Size", "FULL-SIZE");
