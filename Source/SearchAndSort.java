@@ -38,19 +38,6 @@ public class mainSearch {
 				e=true;
 			}
 		}
-		i=0;
-		Collections.sort(f);
-		for(int x = 0; x < 5 && x < numberOfMatches ; x++){
-			try{
-				while(z==false){
-					if(f.get(x).equals(b[i])){
-						topfive[x]=i;
-					}
-				}
-			}
-			catch(Exception error){
-			}
-		}
-		
+		Collections.sort(f)
 	}
 }
